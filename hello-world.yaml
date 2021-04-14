@@ -11,6 +11,17 @@ paths:
         summary: Hello World Get Operation
         description: 'Hello world get operation, it takes the name and prints with "Hello $NAME"'
         get:
+            parameters:
+                -
+                    examples:
+                        example-name:
+                            value: Apicurio
+                    name: name
+                    description: Hello World API
+                    schema:
+                        type: string
+                    in: path
+                    required: true
             responses:
                 '200':
                     $ref: '#/components/responses/Response-ok'
@@ -32,5 +43,10 @@ components:
     responses:
         Response-ok:
             content:
-                application/json: {}
+                application/json:
+                    schema:
+                        type: string
+                    examples:
+                        hello-response:
+                            value: Hello $NAME
             description: Response Ok
