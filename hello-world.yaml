@@ -1,0 +1,36 @@
+openapi: 3.0.2
+info:
+    title: Hello-world-api
+    version: 1.0.0
+    description: hello-aworld-api
+    license:
+        name: Apache 2.0
+        url: 'https://www.apache.org/licenses/LICENSE-2.0'
+paths:
+    '/hello/{name}':
+        summary: Hello World Get Operation
+        description: 'Hello world get operation, it takes the name and prints with "Hello $NAME"'
+        get:
+            responses:
+                '200':
+                    $ref: '#/components/responses/Response-ok'
+            deprecated: false
+            operationId: '1'
+            summary: Hello World Get
+        parameters:
+            -
+                examples:
+                    example-name:
+                        value: Apicurio
+                name: name
+                description: Hello World API
+                schema:
+                    type: string
+                in: path
+                required: true
+components:
+    responses:
+        Response-ok:
+            content:
+                application/json: {}
+            description: Response Ok
